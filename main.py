@@ -13,8 +13,9 @@ if uploaded_file:
     st.write("Preview:", df.head())
 
     if 'home_win' in df.columns:
-        X = df.drop("home_win", axis=1)
-        y = df["home_win"]
+        X = df[['Points', 'Rebounds', 'Assists']]
+
+      y = df["home_win"]
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
         model = LogisticRegression()
