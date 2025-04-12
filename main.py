@@ -14,10 +14,8 @@ if uploaded_file:
 
     if 'home_win' in df.columns:
         X = df[['Points', 'Rebounds', 'Assists']]
-
-      y = df["home_win"]
-
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+        y = df["home_win"]
+ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
         model = LogisticRegression()
         model.fit(X_train, y_train)
 
@@ -37,3 +35,6 @@ if uploaded_file:
             st.write(f"Probabilities: Home {prob[1]:.2%} | Away {prob[0]:.2%}")
     else:
         st.error("CSV must contain a 'home_win' column.")
+
+
+        
